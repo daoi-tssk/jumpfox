@@ -1,0 +1,174 @@
+#start {
+  width: 20vh;
+  height: 20vh;
+  background-color: transparent;
+  background-image: url(../../assets/startcoin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  z-index: 99;
+  cursor: pointer;
+}
+#restart {
+  width: 20vh;
+  height: 20vh;
+  background-color: transparent;
+  background-image: url(../../assets/restartcoin.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  z-index: 99;
+  cursor: pointer;
+}
+.mainrole {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.player {
+  width: 10vh;
+  height:10vh;
+  position: absolute;
+  left: 10vh; bottom: 40vh;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 130%;
+  
+  animation: playeridle .6s linear infinite;
+}
+/* .playerrun {
+  animation: playerrun .6s linear infinite;
+}
+.playerjup {
+  animation: jumpup .4s cubic-bezier(0,0.6,0.6,1);
+}
+.playerjud {
+  animation: jumpdown .4s cubic-bezier(0.6,0,1,0.6);
+} */
+.enemybox {
+  width: 300vh;
+  height: 10vh;
+  position: absolute;
+  bottom: 40vh;
+  background-color: transparent;
+  overflow: hidden;
+}
+.enemy1 {
+  width: 8vh;
+  height: 8vh;
+  position: absolute;
+  bottom: -10vh; left: 320vh;
+  background-color: transparent;
+  background-image: url(../../assets/env/tileset.png);
+  background-repeat: no-repeat;
+  background-position: -80vh -80vh;
+  background-size: 200vh
+}
+.enemy1t {
+  animation: enemy1move 20s linear;
+}
+
+@keyframes playidle {
+  0% {
+    background-image: url(../../assets/player/idle/player-idle-1.png)
+  }
+  33% {
+    background-image: url(../../assets/player/idle/player-idle-2.png)
+  }
+  66% {
+    background-image: url(../../assets/player/idle/player-idle-3.png)
+  }
+  100% {
+    background-image: url(../../assets/player/idle/player-idle-4.png)
+  }
+}
+
+@keyframes playerrun {
+  0% {
+    background-image: url(../../assets/player/run/player-run-1.png);
+  }
+  20% {
+    background-image: url(../../assets/player/run/player-run-2.png);
+  }
+  40% {
+    background-image: url(../../assets/player/run/player-run-3.png);
+  }
+  60% {
+    background-image: url(../../assets/player/run/player-run-4.png);
+  }
+  80% {
+    background-image: url(../../assets/player/run/player-run-5.png);
+  }
+  100% {
+    background-image: url(../../assets/player/run/player-run-6.png);
+  }
+}
+
+@keyframes playeridle {
+  0% {
+    background-image: url(../../assets/player/idle/player-idle-1.png)
+  }
+  33%  {
+    background-image: url(../../assets/player/idle/player-idle-2.png)
+  }
+  66% {
+    background-image: url(../../assets/player/idle/player-idle-3.png)
+  }
+  100% {
+    background-image: url(../../assets/player/idle/player-idle-4.png)
+  }
+}
+
+@keyframes jumpup {
+  0% {
+    bottom: 40vh;
+    background-image: url(../../assets/player/jump/player-jump-1.png);
+  }
+  100% {
+    bottom: 60vh;
+    background-image: url(../../assets/player/jump/player-jump-1.png);
+  }
+}
+@keyframes jumpdown {
+  0% {
+    bottom: 60vh;
+    background-image: url(../../assets/player/jump/player-jump-2.png);
+  }
+  100% {
+    bottom: 40vh;
+    background-image: url(../../assets/player/jump/player-jump-2.png);
+  }
+}
+
+@keyframes playerhurt {
+  0% {
+    background-image: url(../../assets/player/hurt/player-hurt-1.png);
+  }
+  50% {
+    background-image: url(../../assets/player/hurt/player-hurt-2.png);
+  }
+  100% {
+    background-image: url(../../assets/player/hurt/player-hurt-1.png);
+  }
+}
+
+@keyframes enemy1move {
+  0% {
+    bottom: -10vh; 
+    left: 320vh;
+  }
+  10% {
+    bottom: 0vh; 
+    left: 256vh;
+  }
+  100% {
+    bottom: 0vh;
+    left: -320vh;
+  }
+}

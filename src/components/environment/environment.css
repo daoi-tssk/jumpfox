@@ -1,0 +1,131 @@
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.back {
+  width: 100%;
+  min-width: 1200px;
+  height: 100%;
+  background-size: 100vh 100vh;
+  background-repeat: repeat-x;
+  background-image: url(../../assets/env/back.png);
+  position: absolute;
+  left: 0; right: 0; top: 0; bottom: 0;
+  margin: auto;
+  z-index: -999;
+}
+.backcolor {
+  width: 100%;
+  height: 100%;
+  background-color: #2fbdff;
+  position: absolute;
+  z-index: -999;
+}
+
+.groundp {
+  width: 968vh;
+  height: 8vh;
+  position: absolute;
+  top: 60vh; left: -0vh;
+  overflow: hidden;
+  z-index: -998;
+  animation: floorfloat 30s linear forwards;
+}
+
+.groundrp1 {
+  width: 328vh;
+  height: 8vh;
+  position: absolute;
+  top: 100vh; left: 320vh;
+  overflow: hidden;
+  z-index: -998;
+  animation: floorreplace 40s linear infinite;
+}
+.groundrp2 {
+  animation-delay: 10s;
+}
+.groundrp3 {
+  animation-delay: 20s;
+}
+.groundrp4 {
+  animation-delay: 30s;
+}
+
+.floor0 {
+  width: 8vh;
+  height: 8vh;
+  background-color: #fff;
+  background-image: url(../../assets/env/tileset.png);
+  background-repeat: no-repeat;
+  background-position: -40vh -8vh;
+  background-size: 200vh;
+  float: left;
+}
+.floor1 {
+  width: 8vh;
+  height: 8vh;
+  background-image: url(../../assets/env/tileset.png);
+  background-repeat: no-repeat;
+  background-position: -8vh -8vh;
+  background-size: 200vh;
+  float: left;
+}
+.floor2 {
+  width: 8vh;
+  height: 8vh;
+  background-image: url(../../assets/env/tileset.png);
+  background-repeat: no-repeat;
+  background-position: -24vh -8vh;
+  background-size: 200vh;
+  float: left;
+}
+.floor3 {
+  width: 8vh;
+  height: 8vh;
+  background-image: url(../../assets/env/tileset.png);
+  background-repeat: no-repeat;
+  background-position: -40vh -8vh;
+  background-size: 200vh;
+  float: left;
+}
+
+@keyframes floorfloat{
+  0% {
+    left: -0vh;
+  }
+  100% {
+    left: -960vh;
+  }
+}
+
+@keyframes floorreplace{
+  0% {
+    top: 100vh;
+    left: 320vh;
+  }
+  50% {
+    top: 60vh;
+    left: 320vh;
+  }
+  100% {
+    top: 60vh;
+    left: -320vh;
+  }
+}
+
+@keyframes floorreplace2{
+  0% {
+    top: 100vh;
+    left: 320vh;
+  }
+  50% {
+    top: 60vh;
+    left: 320vh;
+  }
+  100% {
+    top: 60vh;
+    left: -320vh;
+  }
+}
