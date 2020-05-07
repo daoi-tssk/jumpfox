@@ -16,46 +16,52 @@ export default {
     return {
       start: 0,
       restart: 0,
-      enemynum: -1,
+      enemynum: -2,
     }
   },
   created() {
-      var _this = this;
+    var _this = this;
 
-      //节流用于 space跳跃
-      function throttle(func, wait) {
-        let previous = 0;
-        return function() {
-          let now = Date.now();
-          let context = this;
-          let args = arguments;
-          if (now - previous > wait) {
-            func.apply(context, args);
-            previous = now;
-          }
+    //节流用于 space跳跃
+    function throttle(func, wait) {
+      let previous = 0;
+      return function() {
+        let now = Date.now();
+        let context = this;
+        let args = arguments;
+        if (now - previous > wait) {
+          func.apply(context, args);
+          previous = now;
         }
       }
+    }
 
-      //如果是空格键则触发跳跃方法
-      function pressdown() {
-        if (-1 == _this.enemynum) {
-           document.getElementById("player").style.animation = "playerhurt .6s infinite";
-          return
-        }
-        let key = window.event.keyCode;
-        if (32 == key) {
-          _this.jump()
-        }
+    //如果是空格键则触发跳跃方法
+    function pressdown() {
+      if (-2 == _this.enemynum){
+        return
       }
+      if (-1 == _this.enemynum) {
+        document.getElementById("player").style.animation = "playerhurt .6s infinite";
+        return
+      }
+      let key = window.event.keyCode;
+      if (32 == key) {
+        _this.jump()
+      }
+    }
 
       //监听按键
       document.onkeydown = throttle(pressdown, 800)
-    },
+  },
   
   watch: {
     //随机时间生成一个敌人
     enemynum: function () {
-      let timedelay = Math.floor(Math.random()*3+3)*1000
+      if(-1 == this.enemynum) {
+        return
+      }
+        let timedelay = Math.floor(Math.random()*3+3)*1000
       setTimeout(this.createEnemy,timedelay);
     }
   },
@@ -80,6 +86,7 @@ export default {
       let targetc = document.getElementById(enemyx);
       
       setTimeout(function(){
+        
         target.removeChild(targetc); //清除敌人
         },11000)
     },
@@ -91,10 +98,10 @@ export default {
 
       this.casestart();
 
-      this.createEnemy();//创建敌人
+      //this.createEnemy();//创建敌人
       setTimeout(function() {
         window['sI0'] = setInterval(_this.hitControl,30);
-      },3000);
+      },9000);
     },
     //碰撞事件控制
     hitControl() {
@@ -116,8 +123,8 @@ export default {
           eright = enemyp.right,
         //  ptop = playerp.top, //玩家四周
           pbottom = playerp.bottom, 
-          pleft = playerp.left,
-          pright = playerp.right;
+          pleft = playerp.left*1.1,
+          pright = playerp.right*0.9;
       if(eleft < pright && eright > pleft && etop < pbottom) {
         return true
       }  
@@ -165,7 +172,19 @@ export default {
         document.getElementById("player").style.animation = "playerhurt .6s infinite";
       },100);
       this.restart = 1;
-    }
+    },
+    cthrottle(func, wait) {
+      let previous = 0;
+      return function() {
+        let now = Date.now();
+        let context = this;
+        let args = arguments;
+        if (now - previous > wait) {
+          func.apply(context, args);
+          previous = now;
+        }
+      }
+    },
   }
 }
 </script>
